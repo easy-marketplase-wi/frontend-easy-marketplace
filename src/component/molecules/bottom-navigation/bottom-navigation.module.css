@@ -1,0 +1,18 @@
+.badgeQuantity {
+  background-color: #ffffff;
+  border: 1px solid #aa2351;
+  color: #aa2351;
+  padding: 4px;
+  height: 18px;
+  min-width: 18px;
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  border-radius: 50%;
+  bottom: 44px;
+  right: 80px;
+  animation: enterBadge 0.3s forwards;
+}

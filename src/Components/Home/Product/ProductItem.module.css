@@ -1,6 +1,6 @@
 .card {
   background-color: #fff;
-  padding: 24px;
+  padding: 16px;
   margin: 42px;
   display: flex;
   flex-direction: column;
@@ -82,8 +82,8 @@
   .card {
     flex-direction: row;
     border-radius: 8px;
-    max-width: 90vw;
-    margin: 21px 0px 21px 0px;
+    width: 100%;
+    margin: 8px 0px 8px 0px;
     border: 1px solid #dadada;
   }
 

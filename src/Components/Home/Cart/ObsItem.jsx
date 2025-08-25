@@ -1,9 +1,9 @@
 import React from 'react';
-import { GlobalContext } from '../../../GlobalContext';
 import styles from './ObsItem.module.css';
+import { GlobalContext } from '../../../provider/global/global';
 
 const ObsItem = () => {
-  const { openObs, setOpenObs, idObs, obs, setObs, addObs } = React.useContext(GlobalContext);
+  const { openObs, setOpenObs, idObs, setObs, addObs } = React.useContext(GlobalContext);
 
   function closeObsBox() {
     setOpenObs(!openObs);

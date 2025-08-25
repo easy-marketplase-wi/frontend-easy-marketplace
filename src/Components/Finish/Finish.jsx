@@ -1,7 +1,7 @@
 import React from 'react';
-import { GlobalContext } from '../../GlobalContext';
 import styles from './Finish.module.css';
 import CartItem from '../Home/Cart/CartItem';
+import { GlobalContext } from '../../provider/global/global';
 
 const Finish = () => {
   const { cart, total, typeBuy } = React.useContext(GlobalContext);

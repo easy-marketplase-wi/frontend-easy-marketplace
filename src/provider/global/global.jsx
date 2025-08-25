@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 export const GlobalContext = React.createContext();
 
-export const GlobalStorage = ({ children }) => {
+export const GlobalProvider = ({ children }) => {
   const [data, setData] = React.useState([]);
   const [listProducts, setListProducts] = React.useState([]);
   const [openCart, setOpenCart] = React.useState(false);
@@ -12,19 +12,19 @@ export const GlobalStorage = ({ children }) => {
   const [cart, setCart] = React.useState([]);
   const [total, setTotal] = React.useState(0);
   const [user, setUser] = React.useState(null);
-  const [typeBuy, setTypeBuy] = React.useState('');
-  const [cep, setCep] = React.useState('');
-  const [number, setNumber] = React.useState('');
-  const [complement, setComplement] = React.useState('');
-  const [typePayment, setTypePayment] = React.useState('');
+  const [typeBuy, setTypeBuy] = React.useState("");
+  const [cep, setCep] = React.useState("");
+  const [number, setNumber] = React.useState("");
+  const [complement, setComplement] = React.useState("");
+  const [typePayment, setTypePayment] = React.useState("");
   const [address, setAddress] = React.useState(null);
-  const [order, setOrder] = React.useState('');
+  const [order, setOrder] = React.useState("");
 
   function addCart(item) {
     item.quantity = 1;
     item.currentPrice = item.price;
     item.isSelected = true;
-    setCart(oldArray => [...oldArray, item]);
+    setCart((oldArray) => [...oldArray, item]);
   }
 
   // add note to cart item
@@ -39,7 +39,8 @@ export const GlobalStorage = ({ children }) => {
     let indexItem = cart.map((e) => e.id).indexOf(item.id);
     let updatedCart = [...cart];
     updatedCart[indexItem].quantity = updatedCart[indexItem].quantity + 1;
-    updatedCart[indexItem].currentPrice = updatedCart[indexItem].currentPrice + updatedCart[indexItem].price;
+    updatedCart[indexItem].currentPrice =
+      updatedCart[indexItem].currentPrice + updatedCart[indexItem].price;
     setCart(updatedCart);
   }
 
@@ -47,7 +48,8 @@ export const GlobalStorage = ({ children }) => {
     let indexItem = cart.map((e) => e.id).indexOf(item.id);
     let updatedCart = [...cart];
     updatedCart[indexItem].quantity = updatedCart[indexItem].quantity - 1;
-    updatedCart[indexItem].currentPrice = updatedCart[indexItem].currentPrice - updatedCart[indexItem].price;
+    updatedCart[indexItem].currentPrice =
+      updatedCart[indexItem].currentPrice - updatedCart[indexItem].price;
     if (updatedCart[indexItem].quantity === 0) {
       updatedCart[indexItem].isSelected = false;
       updatedCart.splice(indexItem, 1);
@@ -57,10 +59,12 @@ export const GlobalStorage = ({ children }) => {
   }
 
   const getProducts = async (category) => {
-    const response = await fetch(`https://my-json-server.typicode.com/danielmafra/api/${category}`);
+    const response = await fetch(
+      `https://my-json-server.typicode.com/danielmafra/api/${category}`
+    );
     const json = await response.json();
     setData(json);
-  }
+  };
 
   async function getCep(cep) {
     const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
@@ -70,7 +74,7 @@ export const GlobalStorage = ({ children }) => {
       cidade: json.localidade,
       bairro: json.bairro,
       uf: json.uf,
-      cep: json.cep
+      cep: json.cep,
     });
   }
 
@@ -79,7 +83,7 @@ export const GlobalStorage = ({ children }) => {
     if (cep.length >= 8) {
       getCep(cep);
     }
-  }, [cep])
+  }, [cep]);
 
   // watch the cart changes to calculate the total price.
   React.useEffect(() => {
@@ -91,8 +95,8 @@ export const GlobalStorage = ({ children }) => {
 
   // save the address in localStorage after finalizing the order
   React.useEffect(() => {
-    if (typeBuy === 'delivery') {
-      window.localStorage.setItem('address', JSON.stringify(order.address));
+    if (typeBuy === "delivery") {
+      window.localStorage.setItem("address", JSON.stringify(order.address));
     }
   }, [order]);
 
@@ -103,13 +107,19 @@ export const GlobalStorage = ({ children }) => {
   // loads product list and default localStorage address
   React.useEffect(() => {
     async function loadData() {
-      const response = await fetch('https://my-json-server.typicode.com/danielmafra/api/burguers');
+      const response = await fetch(
+        "https://my-json-server.typicode.com/danielmafra/api/burguers"
+      );
       const json = await response.json();
       setData(json);
     }
     loadData();
-    const addressDefault = window.localStorage.getItem('address');
-    if (addressDefault !== '' && addressDefault !== null && addressDefault !== undefined) {
+    const addressDefault = window.localStorage.getItem("address");
+    if (
+      addressDefault !== "" &&
+      addressDefault !== null &&
+      addressDefault !== undefined
+    ) {
       setUser(JSON.parse(addressDefault));
     } else {
       setUser(null);
@@ -117,7 +127,42 @@ export const GlobalStorage = ({ children }) => {
   }, []);
 
   return (
-    <GlobalContext.Provider value={{ getProducts, listProducts, addCart, cart, total, incrementItem, decrementItem, user, setUser, typeBuy, setTypeBuy, cep, setCep, number, setNumber, complement, setComplement, typePayment, setTypePayment, address, setAddress, order, setOrder, openCart, setOpenCart, openObs, setOpenObs, idObs, setIdObs, obs, setObs, addObs }}>
+    <GlobalContext.Provider
+      value={{
+        getProducts,
+        listProducts,
+        addCart,
+        cart,
+        total,
+        incrementItem,
+        decrementItem,
+        user,
+        setUser,
+        typeBuy,
+        setTypeBuy,
+        cep,
+        setCep,
+        number,
+        setNumber,
+        complement,
+        setComplement,
+        typePayment,
+        setTypePayment,
+        address,
+        setAddress,
+        order,
+        setOrder,
+        openCart,
+        setOpenCart,
+        openObs,
+        setOpenObs,
+        idObs,
+        setIdObs,
+        obs,
+        setObs,
+        addObs,
+      }}
+    >
       {children}
     </GlobalContext.Provider>
   );

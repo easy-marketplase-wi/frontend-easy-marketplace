@@ -1,8 +1,8 @@
 import React from 'react';
-import { GlobalContext } from '../../../../GlobalContext';
 import Address from './Address';
 import AddressDefault from './AddressDefault';
 import styles from './RadioDelivery.module.css';
+import { GlobalContext } from '../../../../provider/global/global';
 
 const RadioDelivery = () => {
   const { typeBuy, setTypeBuy, user } = React.useContext(GlobalContext);

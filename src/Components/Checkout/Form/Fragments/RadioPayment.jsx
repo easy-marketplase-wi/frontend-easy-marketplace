@@ -1,6 +1,6 @@
 import React from 'react';
-import { GlobalContext } from '../../../../GlobalContext';
 import styles from './RadioPayment.module.css';
+import { GlobalContext } from '../../../../provider/global/global';
 
 const RadioPayment = () => {
   const { typePayment, setTypePayment } = React.useContext(GlobalContext);

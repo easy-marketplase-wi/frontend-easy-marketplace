@@ -1,14 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { useParams } from 'react-router-dom';
-import { GlobalContext } from '../../../GlobalContext';
-import useMedia from '../../../Hooks/useMedia';
 import styles from './Products.module.css';
 import ProductItem from './ProductItem';
+import { GlobalContext } from '../../../provider/global/global';
 
 const Products = () => {
-  const { getProducts, listProducts, addCart } = React.useContext(GlobalContext);
+  const { getProducts, listProducts, addCart } = useContext(GlobalContext);
   const { product } = useParams();
-  //const mobile = useMedia('(max-width: 480px)');
 
   React.useEffect(() => {
     product && getProducts(product);
@@ -16,15 +14,6 @@ const Products = () => {
 
   function handleClick(product) {
     addCart(product)
-    /*
-    if you want to change the way the product is added
-    to the cart in the version below, you can use this logic:
-    if (mobile) {
-        //do something different
-      } else {
-        addCart(product) //use the default function
-      }
-    */
   }
 
   return (

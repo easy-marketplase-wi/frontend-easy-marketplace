@@ -1,7 +1,7 @@
 import React from 'react';
-import { GlobalContext } from '../../../../GlobalContext';
 import RadioPayment from './RadioPayment';
 import styles from './AddressDefault.module.css';
+import { GlobalContext } from '../../../../provider/global/global';
 
 const AddressDefault = () => {
   const { user, setUser } = React.useContext(GlobalContext);

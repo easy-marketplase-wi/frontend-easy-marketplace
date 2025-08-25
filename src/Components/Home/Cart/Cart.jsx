@@ -1,9 +1,9 @@
 import React from 'react';
-import { GlobalContext } from '../../../GlobalContext';
 import { useNavigate } from 'react-router-dom';
 import useMedia from '../../../Hooks/useMedia';
 import CartItem from './CartItem';
 import styles from './Cart.module.css';
+import { GlobalContext } from '../../../provider/global/global';
 
 const Cart = ({ isCheckout }) => {
   const mobile = useMedia('(max-width: 480px)');

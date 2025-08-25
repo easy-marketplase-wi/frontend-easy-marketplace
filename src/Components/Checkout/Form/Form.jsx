@@ -1,10 +1,11 @@
 import React from 'react';
 import useForm from '../../../Hooks/useForm';
-import { GlobalContext } from '../../../GlobalContext';
+
 import { useNavigate } from 'react-router-dom';
 import Input from './Fragments/Input';
 import RadioDelivery from './Fragments/RadioDelivery';
 import styles from './Form.module.css';
+import { GlobalContext } from '../../../provider/global/global';
 
 const Form = () => {
   const { typeBuy, number, complement, address, typePayment, cart, total, order, setOrder, user } = React.useContext(GlobalContext);
