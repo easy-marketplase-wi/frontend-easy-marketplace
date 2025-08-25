@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
 import styles from "./menu.module.css";
 
-import { IconProps } from "../../atoms/icons/drink";
 
 import { MenuItem } from "../menu-item/menu-item";
+import { IconProps } from "../../../types/icon";
 
 type MenuItemType = {
   to: string;
