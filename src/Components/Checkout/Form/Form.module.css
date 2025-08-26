@@ -1,8 +1,7 @@
 .form {
   background-color: #fff;
-  padding: 32px 48px;
-  border-radius: 8px;
-  width: 721px;
+  
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -11,12 +10,10 @@
   font-size: 22px;
   font-weight: 600;
   line-height: 1;
-  margin-bottom: 32px;
 }
 
 .subTitle {
   line-height: 1;
-  margin-top: 44px;
 }
 
 .form button.confirm {
@@ -26,12 +23,11 @@
   font-weight: 600;
   border: none;
   border-radius: 8px;
-  width: 348px;
+  width: 100%;
   height: 46px;
   cursor: pointer;
   transition: .3s;
   align-self: center;
-  margin-top: 56px;
 }
 
 .form button.confirm:hover {
@@ -42,9 +38,7 @@
 @media (max-width: 480px){
 
   .form {
-    padding: 16px;
-    max-width: 90%;
-    margin: 0 auto;
+    width: 100%;
   }
 
   .form button.confirm {

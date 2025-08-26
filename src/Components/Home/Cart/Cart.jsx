@@ -1,25 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import useMedia from '../../../Hooks/useMedia';
 import CartItem from './CartItem';
 import styles from './Cart.module.css';
 import { GlobalContext } from '../../../provider/global/global';
 
 const Cart = ({ isCheckout }) => {
-  const mobile = useMedia('(max-width: 480px)');
-  const { cart, total, openCart, setOpenCart } = React.useContext(GlobalContext);
+  const { cart, total, openCart } = React.useContext(GlobalContext);
   const navigate = useNavigate();
-
-  function handleOpenCart() {
-    setOpenCart(!openCart);
-  }
 
   return (
     <div className={`${styles.cart} ${openCart ? styles.openCart : styles.closeCart}`}>
-      {mobile && (
-        <button onClick={handleOpenCart} className={styles.btnCloseCart}>← Voltar</button>
-      )}
-      <h2 className={styles.title}>Seu pedido</h2>
       {cart.length > 0 ? (
         <div className={styles.enterLeft}>
           <div className={styles.items}>

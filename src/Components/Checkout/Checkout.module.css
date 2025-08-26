@@ -1,13 +1,11 @@
 .checkout {
-  background-color: #fafafa;
+  background-color: #fff;
   display: flex;
   height: 100vh;
+  padding: 24px;
 }
 
-.mainCheckout {
-  margin-top: 16px;
-  margin-left: 16px;
-}
+
 
 .mainCheckout a {
   text-decoration: none;
@@ -32,7 +30,7 @@
 @media (max-width: 480px){
 
   .checkout {
-    height: auto;
+    height: fit-content;
   }
 
   .openCheckout {

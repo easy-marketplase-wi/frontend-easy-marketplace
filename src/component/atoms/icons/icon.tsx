@@ -1,9 +1,12 @@
 import { IconProps } from "../../../types/icon";
+import { ArrowLeftIcon } from "./arrow-left";
 
 import { BurguersIcon } from "./burguers";
 import { CombosIcon } from "./combos";
+import { DeliveryIcon } from "./delivery";
 import { DessertsIcon } from "./desserts";
 import { DrinksIcon } from "./drink";
+import { PackageIcon } from "./package";
 import { PizzaIcon } from "./pizza";
 
 export const iconMap = {
@@ -12,6 +15,9 @@ export const iconMap = {
   desserts: DessertsIcon,
   combos: CombosIcon,
   burguers: BurguersIcon,
+  delivery: DeliveryIcon,
+  arrowLeft:ArrowLeftIcon,
+  package: PackageIcon
 };
 
 interface Props extends IconProps {

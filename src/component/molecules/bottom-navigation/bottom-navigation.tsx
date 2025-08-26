@@ -23,10 +23,11 @@ export const BottomNavigation = () => {
         display: "flex",
         justifyContent: "space-around",
         alignItems: "center",
+        borderTop: "1px solid #acacac",
       }}
     >
       <a
-        href="#"
+        href="/"
         style={{
           color: "#ff2351",
           textDecoration: "none",
@@ -56,6 +57,7 @@ export const BottomNavigation = () => {
       <button
         onClick={handleOpenCart}
         style={{
+          backgroundColor: "#fff",
           color: "#ff2351",
           textDecoration: "none",
           display: "flex",
